@@ -9,6 +9,7 @@ package com.employee.controller;
 import com.properties.PropBean;
 import com.employee.util.FileUploaderUtil;
 import com.intelesant.dto.ImageDTO;
+import com.intelesant.dto.UserAccountDTO;
 import com.intelesant.service.UserService;
 import java.util.Iterator;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +17,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -81,5 +84,26 @@ public class EmployeeController {
 		return userService.getUserLogo(imagePath);
 
 	}
+        
+        @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
+    @Transactional
+    public @ResponseBody void registerUser(@RequestBody UserAccountDTO userAccountDTO) {
+
+            userService.addUser(userAccountDTO);
+    }
+    
+    @RequestMapping(value = "/getUser",params="userName", method = RequestMethod.GET)
+    @Transactional
+    public @ResponseBody UserAccountDTO getUserDetails(@RequestParam String userName) {
+
+          return  userService.getUserDetails(userName);
+    }
+    
+    @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
+    @Transactional
+    public @ResponseBody void updateUser(@RequestBody UserAccountDTO userAccountDTO) {
+
+            userService.updateUser(userAccountDTO);
+    }
     
 }

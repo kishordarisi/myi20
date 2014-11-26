@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.intelesant.builder.UserBuilder;
+import com.intelesant.business.UserAccount;
 import com.intelesant.dao.UserDAO;
 import com.intelesant.dto.ImageDTO;
 import java.io.ByteArrayOutputStream;
@@ -98,6 +99,19 @@ public class UserServiceImpl implements UserService {
 
         }
         return logoDTO;
+    }
+
+    @Override
+    public ImageDTO updateUser(UserAccountDTO userAccountDTO) {
+        UserAccount userAccount=userDAO.findByNameILike(userAccountDTO.getUserName());
+        userAccount.setFirstName(userAccountDTO.getFirstName());
+        userAccount.setLastName(userAccountDTO.getLastName());
+        if(userAccountDTO.getPhotoURL()!=null){
+        userAccount.setPhotoURL(userAccountDTO.getPhotoURL());
+        }
+        dao.saveOrUpdate(userAccount);
+        ImageDTO imageDTO=userAccount.getPhotoURL()!=null?getUserLogo(userAccount.getPhotoURL()):new ImageDTO();
+        return imageDTO;
     }
 
 }

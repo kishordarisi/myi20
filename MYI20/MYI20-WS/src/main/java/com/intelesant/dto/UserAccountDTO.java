@@ -28,6 +28,7 @@ public class UserAccountDTO implements Serializable{
 	private String password;
 	private String comments;
 	private String country;
+        private String photoURL;
 
     public Long getId() {
         return id;
@@ -99,6 +100,14 @@ public class UserAccountDTO implements Serializable{
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getPhotoURL() {
+        return photoURL;
+    }
+
+    public void setPhotoURL(String photoURL) {
+        this.photoURL = photoURL;
     }
         
         

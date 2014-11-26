@@ -14,4 +14,6 @@ public interface UserService {
         UserAccountDTO getUserDetails(String userName);
         
         public ImageDTO getUserLogo(String imagePath);
+        
+        ImageDTO updateUser(UserAccountDTO userAccountDTO);
 }

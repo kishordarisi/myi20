@@ -6,7 +6,6 @@
 
 package com.login.security;
 
-import com.intelesant.business.UserAccount;
 import com.intelesant.dao.DAO;
 import com.intelesant.dao.UserDAO;
 import com.intelesant.dto.UserAccountDTO;
@@ -17,10 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -53,25 +50,9 @@ public class LoginController {
     @Transactional
     @ResponseBody
     public UserAccountDTO login(ModelMap modelMap, Principal principal) {
-
+        LOGGER.info("User Name  is :::::::::"+principal.getName());
         return userService.login(principal);
 
     }
     
-    @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
-    @Transactional
-    public @ResponseBody void registerUser(@RequestBody UserAccountDTO userAccountDTO) {
-
-            userService.addUser(userAccountDTO);
-    }
-    
-    @RequestMapping(value = "/getUser",params="userName", method = RequestMethod.GET)
-    @Transactional
-    public @ResponseBody UserAccountDTO getUserDetails(@RequestParam String userName) {
-
-          return  userService.getUserDetails(userName);
-    }
-
 }
-
-

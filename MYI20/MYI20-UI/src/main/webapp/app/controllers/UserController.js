@@ -21,6 +21,12 @@ Myi20.controller('UserController', function($scope,$location,$window,$cookieStor
                 function(data) {
                     console.log("image path after image changed : " + data);
                     $scope.imagePath1 = data;
+                    $scope.userData.photoURL=$scope.imagePath1;
+                    registerService.updateUser($scope.userData).success(
+                function(data1) {
+                    console.log("user updated : ");
+                    
+                });
                 });
   };
   
