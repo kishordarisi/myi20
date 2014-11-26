@@ -37,7 +37,43 @@ factory('registerService', function($http,$cookieStore) {
                         },
                         async: false
                     });
-                }
+                },uploadImage : function(image) {
+			var fd = new FormData();
+			fd.append('file', image);
+			console.log("image in uploadImage service :"+ JSON.stringify(fd));
+			return $http({
+				method : 'POST',
+				url : '/security-ws/employee/uploadLogo',
+				data : fd,
+				transformRequest : angular.identity,
+				headers : {
+					'Authorization' : $cookieStore.get('userPassword'),
+					'Content-Type' : undefined
+				}
+			}).success(function(data, status, headers, config) {
+				console.log('image uploaded.Path is: '+data);
+				
+				return data;
+			}).error(function(data, status, headers, config) {
+				return data;
+			});
+		},
+
+		getOrganizationLogo : function(imagePath) {
+			return $http({
+				method : 'GET',
+				url : '/security-ws/employee/userLogo',
+				params : {"imagePath" : imagePath},
+				headers : {
+					'Authorization' : $cookieStore.get('userPassword')
+				}
+			}).
+			success(function(data) {
+				return data;
+			}).error(function(data) {
+				return data;
+			});
+		}
                 
    };
    

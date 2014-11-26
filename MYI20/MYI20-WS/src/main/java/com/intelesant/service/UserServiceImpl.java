@@ -8,12 +8,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.intelesant.builder.UserBuilder;
 import com.intelesant.dao.UserDAO;
+import com.intelesant.dto.ImageDTO;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.security.Principal;
+import org.apache.log4j.Logger;
 
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
+    private Logger LOGGER = Logger.getLogger(UserServiceImpl.class);
 	@Autowired
 	DAO dao;
 	@Autowired
@@ -39,6 +46,58 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserAccountDTO getUserDetails(String userName) {
         return userBuilder.convertTOUserDTO(userDAO.findByNameILike(userName));
+    }
+    
+    
+    
+    @Override
+    public ImageDTO getUserLogo(String imagePath) {
+        ImageDTO logoDTO = new ImageDTO();
+        FileInputStream fis = null;
+        ByteArrayOutputStream bos=null;
+        LOGGER.info("image path in getting logo method :" + imagePath);
+        try {
+            File file = new File(imagePath);
+            LOGGER.info("image exists: " + file.exists() + " !!");
+            if (!file.exists()) {
+                LOGGER.info("image does not exist");
+                return null;
+            }
+            fis = new FileInputStream(file);
+            bos = new ByteArrayOutputStream();
+            byte[] image = new byte[(int) file.length()];
+
+            for (int readNum; (readNum = fis.read(image)) != -1;) {
+                bos.write(image, 0, readNum);
+            }
+
+            logoDTO.setImage(bos.toByteArray());
+            int index ;
+//			String imageName = imagePath.substring(index + 1);
+            logoDTO.setImagePath(imagePath);
+
+            index = imagePath.lastIndexOf(".");
+            logoDTO.setFileExtension(imagePath.substring(index) + 1);
+
+            LOGGER.info("file after reading: " + bos.size());
+        } catch (IOException ex) {
+            LOGGER.error("unable to read iamge", ex);
+        } finally {
+
+            try {
+                if (fis != null) {
+                    fis.close();
+                }
+                if(bos!=null){
+                    bos.close();
+                }
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+            LOGGER.error("unable to read iamge", e);
+            }
+
+        }
+        return logoDTO;
     }
 
 }

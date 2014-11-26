@@ -37,6 +37,7 @@ public class UserAccount implements Serializable {
         private String promoCode;
 	private String comments;
 	private String country;
+        private String photoURL;
     
     public UserAccount() {
         this.roles = new HashSet<Role>();
@@ -252,6 +253,15 @@ public class UserAccount implements Serializable {
     public void setCountry(String country) {
         this.country = country;
     }
+
+    public String getPhotoURL() {
+        return photoURL;
+    }
+
+    public void setPhotoURL(String photoURL) {
+        this.photoURL = photoURL;
+    }
+    
 
     
     @Override

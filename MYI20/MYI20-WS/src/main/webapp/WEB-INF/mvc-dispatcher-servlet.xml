@@ -50,6 +50,17 @@
             <beans:value>.jsp</beans:value>
         </beans:property>
     </beans:bean>
+    
+    <beans:bean name="propBean"
+		class="com.properties.PropBean">
+		<beans:property name="propData">
+			<beans:bean
+				class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+				<beans:property name="location"
+					value="classpath:fileupload.properties" />
+			</beans:bean>
+		</beans:property>
+	</beans:bean>
 
 
     <beans:bean id="userDetailsServiceImpl"

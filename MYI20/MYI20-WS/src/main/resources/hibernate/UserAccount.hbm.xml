@@ -41,6 +41,9 @@
     <property name="promoCode" type="string">
         <column name="promoCode" length="250"/>
     </property>
+    <property name="photoURL" type="string">
+        <column name="photoURL" length="250"/>
+    </property>
     
     <set fetch="select" lazy="true" name="roles" table="UserAccount_Role">
       <key column="accountId"/>

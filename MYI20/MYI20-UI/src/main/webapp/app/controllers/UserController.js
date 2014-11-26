@@ -4,7 +4,6 @@ Myi20.controller('UserController', function($scope,$location,$window,$cookieStor
   $scope.getUserDetails=function (){
       
       registerService.getUserDetails($cookieStore.get('Myi20.userName')).success(function(data) {
-        alert("success...");
         $scope.userData=data;
         
     }).error(function(err){
@@ -13,11 +12,18 @@ Myi20.controller('UserController', function($scope,$location,$window,$cookieStor
       
   };
   $scope.logout=function (){
-      alert("logging out....");
       $cookieStore.put('Myi20.userName',null);
       $cookieStore.put('Myi20.crypt',null);
       $window.location="index.html";
   };
+  $scope.updateProfile=function (){
+      registerService.uploadImage($scope.imagePath).success(
+                function(data) {
+                    console.log("image path after image changed : " + data);
+                    $scope.imagePath1 = data;
+                });
+  };
+  
 });
 
 Myi20.config(function($routeProvider) {
@@ -26,3 +32,19 @@ Myi20.config(function($routeProvider) {
         controller: 'RegistrationContoller'
     });
 });
+
+Myi20.directive('fileModel', ['$parse', function($parse) {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                var model = $parse(attrs.fileModel);
+                var modelSetter = model.assign;
+
+                element.bind('change', function() {
+                    scope.$apply(function() {
+                        modelSetter(scope, element[0].files[0]);
+                    });
+                });
+            }
+        };
+    }]);

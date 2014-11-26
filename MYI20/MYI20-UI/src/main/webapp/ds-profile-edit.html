@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="Myi20">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
     <link href="css/bootstrap-select.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
-  <body>
+  <body ng-controller="UserController" ng-init="getUserDetails()">
 	<div class="menu">
 	<div class="top-nav">  
         <div class="cont row">
@@ -66,7 +66,7 @@
 						</form>
                       </ul>
 					  <ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Welcome Xyzs</a></li>
+						<li><a href="#">Welcome {{userData.firstName}}</a></li>
 					  </ul>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container-fluid -->
@@ -96,7 +96,7 @@
 						<li><a href="#"><i class="fa fa-file-o"></i>Documents</a></li>
 						<li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
 						<li><a href="#"><i class="fa fa-cc-visa"></i>Payment</a></li>
-						<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
+						<li ng-click="logout()"><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
 					</ul>
 			</div>
 			
@@ -113,25 +113,25 @@
             <form role="form">
 			  <div class="form-group">
 				<label for="exampleInputEmail1">First Name</label>
-				<input type="text" class="form-control" id="firstname" placeholder="First Name">
+                                <input type="text" class="form-control" ng-model="userData.firstName" id="firstname" placeholder="First Name">
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputEmail1">Last Name</label>
-				<input type="text" class="form-control" id="lastname" placeholder="Last Name">
+				<input type="text" class="form-control" ng-model="userData.lastName" id="lastname" placeholder="Last Name">
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputEmail1">Email address</label>
-				<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+				<input type="email" class="form-control" ng-model="userData.userName" id="exampleInputEmail1" placeholder="Enter email">
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputPassword1">Password</label>
-				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+				<input type="password" class="form-control" ng-model="userData.password" id="exampleInputPassword1" placeholder="Password">
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputFile">Change Profile Picture</label>
-				<input type="file" id="exampleInputFile">
+                                <input type="file" id="exampleInputFile" accept="image/*" file-model="imagePath">
 			  </div>
-			  <button type="submit" class="btn btn-warning">Submit</button>
+			  <button type="submit" class="btn btn-warning" ng-click="updateProfile()">Submit</button>
 			</form>
 		</div>
         </div><!--/.col-xs-12.col-sm-9-->
@@ -306,6 +306,13 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/angular.js"></script>
+        <script src="js/angular-resource.js"></script>
+        <script src="js/angular-cookies.js"/></script>
+  <script src="app/app.js"></script>
+    <script src="app/controllers/UserController.js"></script>
+
+    <script src='app/services/RegistrationService.js'></script>
 	<script>
 	$( document ).ready(function() {
 		$('.selectpicker').selectpicker();
