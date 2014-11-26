@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Myi20">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Myi20</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+    <link href="css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body ng-controller="RegistrationContoller">
+	<div class="menu">
+	<div class="top-nav">  
+        <div class="cont row">
+			<div class="col-sm-6">
+				<div class="logo">
+					<!-- <img src="img/logo1.png"> --><h1>MYI20.COM</h1>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="apply_now pull-right">
+					<a href="#">Apply Now</a>
+				</div>
+			</div>
+		</div>
+    </div>
+	<div class="main_nav">
+		<div class="cont row">
+            <div class="menu">
+            	<nav class="navbar navbar-default" role="navigation">
+                  <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                    </div>
+                
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav text-uppercase">
+						<li class="dropdown">
+						  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span aria-hidden="true" class="glyphicon glyphicon-th-list"></span>Menu<span class="caret"></span></a>
+						  <ul class="dropdown-menu" role="menu">
+							<li><a href="index.html"><span aria-hidden="true" class="glyphicon glyphicon-home"></span>HOME</a></li>
+							<li class="divider"></li>
+							<li><a href="about.html"><span aria-hidden="true" class="glyphicon glyphicon-certificate"></span>ABOUT US</a></li>
+							<li class="divider"></li>
+							<li><a href="#"><span aria-hidden="true" class="glyphicon glyphicon-send"></span>APPLY NOW</a></li>
+							<li class="divider"></li>
+							<li><a href="admsn_gidlns.html"><span aria-hidden="true" class="glyphicon glyphicon-book"></span>ADMISSION GUIDELINES</a></li>
+							<li class="divider"></li>
+							<li><a href="#"><span aria-hidden="true" class="glyphicon glyphicon-phone-alt"></span>CONTACT US</a></li>
+						  </ul>
+						</li>
+						<form class="navbar-form navbar-left" role="search">
+							<div class="form-group">
+							  <input type="text" class="form-control" placeholder="Universities and Colleges">
+							</div>
+							<button type="submit" class="btn btn-default">Submit</button>
+						</form>
+                      </ul>
+					  <ul class="nav navbar-nav navbar-right">
+						<li><a href="#" data-toggle="modal" data-target="#myModal">Sign Up</a></li>
+						<li><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
+					  </ul>
+                    </div><!-- /.navbar-collapse -->
+                  </div><!-- /.container-fluid -->
+                </nav>
+            </div>
+        </div>
+	</div>
+	</div>
+    <div class="slider">
+     	<div class="cont1 row">
+        	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <img src="img/slide1.jpg" alt="slide1">
+                  <div class="carousel-caption">
+                    
+                  </div>
+                </div>
+                <div class="item">
+                  <img src="img/slide2.jpg" alt="slide2">
+                  <div class="carousel-caption">
+                   
+                  </div>
+                </div>
+                <div class="item">
+                  <img src="img/slide3.jpg" alt="slide3">
+                  <div class="carousel-caption">
+                   
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+              </a>
+              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+              </a>
+            </div>
+        </div>
+		<div class="courses">
+			
+			<div class="cont row">
+				<a href="#">
+				<div class="col-sm-3 blue">
+					<div class="box">
+						<div class="box_text">
+							<div class="text-center">
+								<h5>STUDY ABROAD</h5>
+								<img src="img/globe.png">
+							</div>
+						</div>
+					</div>
+				</div>
+				</a>
+				<a href="#">
+				<div class="col-sm-3 yellow">
+					<div class="box">
+						<div class="box_text">
+							<div class="text-center">
+								<h5>TOEFL</h5>
+								<i class="fa fa-university"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				</a>
+				<a href="#">
+				<div class="col-sm-3 green">
+					<div class="box">
+						<div class="box_text">
+							<div class="text-center">
+								<h5>SAT</h5>
+								<i class="fa fa-book"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				</a>
+				<a href="#">
+				<div class="col-sm-3 pink">
+					<div class="box">
+						<div class="box_text">
+							<div class="text-center">
+								<h5>INTERVIEW PREPARATION</h5>
+								<img src="img/preparation.png">
+							</div>
+						</div>
+					</div>
+				</div>
+				</a>
+			</div>
+			<div class="cont grey">
+				<a href="#">
+				<div class="col-sm-3 cblue">
+					<div class="box">
+						<div class="box_text">
+							<div class="text-center">
+								<h5>I 20</h5>
+								<i class="fa fa-graduation-cap"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				</a>
+				<a href="#">
+				<div class="col-sm-3 cyellow">
+					<div class="box">
+						<div class="box_text">
+							<div class="text-center">
+								<h5>DOCUMENTATION</h5>
+								<i class="fa fa-file-text-o"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				</a>
+				<a href="#">
+				<div class="col-sm-3 cgreen">
+					<div class="box">
+						<div class="box_text">
+							<div class="text-center">
+								<h5>FINALCIAL GUIDELINES</h5>
+								<i class="fa fa-usd"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				</a>
+				<a href="#">
+				<div class="col-sm-3 cpink">
+					<div class="box">
+						<div class="box_text">
+							<div class="text-center">
+								<h5>TRIP PLANNING</h5>
+								<i class="fa fa-plane"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				</a>
+			</div>
+		</div>
+    </div>
+	<div class="app_guideline">
+		<div class="cont row">
+				<div class="col-sm-12 smart_head">
+					<div class="text-center">
+					<h3>Admission GuideLines</h3>
+					</div>
+				</div>
+		</div>
+		<div class="cont row mt50">
+			<div class="col-sm-4">
+				<div class="text-center box2" id="visa">
+					<img src="img/1.png">
+					<h5>Visa Information</h5>
+					<p>Options for US Visa fee payment. Banks that accepts US Visa fee. Paying Visa fee using Mobile Phone.Explanation of Process for Visa application fee payment in India under new processing system</p>
+					<a href="#"><button type="button" class="btn btn-default">Know More</button></a>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="text-center box2" id="applicationprocess">
+					<img src="img/2.png">
+					<h5>Application Process</h5>
+					<p>The best time to start the application filling up process is, at least two to three months before the Ist deadline of the universities. There are two ways for you to obtain the application forms (physical copies). </p>
+					<a href="#"><button type="button" class="btn btn-default">Know More</button></a>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="text-center box2" id="applicationprocedure">
+					<img src="img/3.png">
+					<h5>Application Procedure</h5>
+					<p>The most crucial step in the whole process of studying abroad, is the application process. Unless applications are filed properly, completely and correctly, admission is either delayed or denied. This leads to loss of time, money and possibly the zest for future! </p>
+					<a href="#"><button type="button" class="btn btn-default">Know More</button></a>
+				</div>
+			</div>
+		</div>
+		<div class="cont row mt50">
+			<div class="col-sm-4">
+				<div class="text-center box2" id="selectinguniversity">
+					<img src="img/4.png">
+					<h5>Selecting Universities</h5>
+					<p>U.S.A has the largest number of universities in the world. There are more than 3900 universities and colleges that offer post-secondary education, right from Bachelors got the Post-doctoral level. </p>
+					<a href="#"><button type="button" class="btn btn-default">Know More</button></a>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="text-center box2" id="sop">
+					<img src="img/5.png">
+					<h5>How to write Sop</h5>
+					<p>A 'Statement of Purpose' as the name implies, has to provide your purpose, reasons and background details in the form of an essay/statement. Universities would like to know how you present yourself</p>
+					<a href="#"><button type="button" class="btn btn-default">Know More</button></a>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="text-center box2" id="scholorship">
+					<img src="img/6.png">
+					<h5>Financial Aids Scholarship</h5>
+					<p>While it is easy for most domestic students to obtain some form of Federal (Government) Aid or university aid for their Bachelor's level education, it is most often very difficult for international students</p>
+					<a href="#"><button type="button" class="btn btn-default">Know More</button></a>
+				</div>
+			</div>
+		</div>
+		<div class="cont row mt50">
+			<div class="col-sm-4">
+				<div class="text-center box2" id="abroad">
+					<img src="img/7.png">
+					<h5>Cost of Studying Abroad</h5>
+					<p>This is an area which most students would like to have detailed information first, before they plan their education abroad. In fact, knowledge about the costs involved is a 'must' before one venture into this not-so-cheap process</p>
+					<a href="#"><button type="button" class="btn btn-default">Know More</button></a>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="text-center box2" id="inhouse">
+					<img src="img/8.png">
+					<h5>In house Application Processing</h5>
+					<p>In house Application Processing is described clearly by a pictorial diagram which make oyu better understanding of the application processing</p>
+					<a href="#"><button type="button" class="btn btn-default">Know More</button></a>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="text-center box2" id="apppro">
+					<img src="img/9.png">
+					<h5>Application Procedure</h5>
+					<p>The most crucial step in the whole process of studying abroad, is the application process. Unless applications are filed properly, completely and correctly, admission is either delayed or denied. This leads to loss of time, money and possibly the zest for future! </p>
+					<a href="#"><button type="button" class="btn btn-default">Know More</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="footer mt50">
+	<div class="footer_cont">
+		<div class="cont row">
+		<div class="col-sm-4">
+     	<div class="pull-left">
+			<p>&copy; MYI20.com</p>
+		</div>
+		</div>
+		<div class="col-sm-8">
+		<div class="footer_menu pull-right">
+			<ul class="list-unstyled">
+				<li><a href="#">Why Join</a></li>
+				<li><a href="#">About Us</a></li>
+				<li><a href="#">Carrer</a></li>
+				<li><a href="#">Follow Us</a></li>
+			</ul>
+		</div>
+		</div>
+		</div>
+		<div class="clear"></div>
+    </div>
+    </div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<div class="text-center">
+				<h4>SIGN UP</h4>
+			</div>
+		  </div>
+		  <div class="modal-body">
+                      <form role="form" name="registerUser">
+			<div class="row">
+				
+				  <div class="form-group">
+					<div class="col-sm-12">
+                                            <label for="exampleInputEmail1">Name<span style="color: red">*</span></label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" ng-model="user.firstName" class="form-control" id="first_name" placeholder="First Name" required>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" ng-model="user.lastName" class="form-control" id="last_name" placeholder="Last Name">
+					</div>
+				  </div>
+				  <div class="form-group">
+					<div class="col-sm-12">
+					<label for="exampleInputEmail1">Mobile Country<span style="color: red">*</span></label>
+					</div>
+					<div class="col-sm-12">
+						    <select class="selectpicker" ng-model="user.country" required>
+                                                        <option value="India">India</option>
+                                                        <option value="America">America</option>
+                                                        <option value="Bangladesh">Bangladesh</option>
+							</select>
+					</div>
+				  </div>
+				  <div class="form-group">
+					<div class="col-sm-12">
+					<label for="exampleInputEmail1">Mobile Number<span style="color: red">*</span></label>
+					</div>
+					<div class="col-sm-12">
+						<input type="text" ng-model="user.mobileNumber" class="form-control" id="mob_number" placeholder="Mobile Number" required>
+					</div>
+				  </div>
+				  <div class="form-group">
+					<div class="col-sm-12">
+					<label for="exampleInputEmail1">Email<span style="color: red">*</span></label>
+					</div>
+					<div class="col-sm-12">
+						<input type="email" ng-model="user.userName" class="form-control" id="userName" placeholder="Email" required>
+					</div>
+				  </div>
+				  <div class="form-group">
+					<div class="col-sm-12">
+					<label for="exampleInputEmail1">Password<span style="color: red">*</span></label>
+					</div>
+					<div class="col-sm-12">
+						<input type="password" ng-model="user.password" class="form-control" id="password" placeholder="Password" required>
+					</div>
+				  </div>
+				  <div class="form-group">
+					<div class="col-sm-12">
+					<label for="exampleInputEmail1">Comments<span style="color: red">*</span></label>
+					</div>
+					<div class="col-sm-12">
+						<textarea ng-model="user.comments" class="form-control" rows="3" required></textarea>
+					</div>
+				  </div>
+				  <div class="form-group">
+					<div class="col-sm-12">
+					<label for="exampleInputEmail1">Promo Code<span style="color: red">*</span></label>
+					</div>
+					<div class="col-sm-12">
+						<input type="text" ng-model="user.promoCode" class="form-control" id="Code" placeholder="Code" required>
+					</div>
+				  </div>
+				
+			</div>
+                      <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="registerUser1(user)" ng-disabled="registerUser.$invalid">Submit</button>
+		  </div>
+                      </form>
+		  </div>
+		  
+		</div>
+	  </div>
+	</div>
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<div class="text-center">
+				<h4>SIGN UP</h4>
+			</div>
+		  </div>
+		  <div class="modal-body">
+			<div class="row">
+				<form role="form">
+				  <div class="form-group">
+					<div class="col-sm-12">
+					<label for="exampleInputEmail1">Email ID</label>
+					</div>
+					<div class="col-sm-12">
+						<input type="email" ng-model="logUserName" class="form-control" id="exampleInputEmail" placeholder="Email">
+					</div>
+				  </div>
+				  <div class="form-group">
+					<div class="col-sm-12">
+					<label for="exampleInputEmail1">Password</label>
+					</div>
+					<div class="col-sm-12">
+                                            <input type="password" ng-model="userPassword" class="form-control" id="exampleInputEmail" placeholder="Password">
+					</div>
+				  </div>
+				  <div class="col-sm-12">
+				  <div class="checkbox">
+					<label>
+					  <input type="checkbox"> Remember me
+					</label>
+				  </div>
+				  </div>
+				  <div class="col-sm-12">
+                                      <button type="submit" class="btn btn-default login_btn" ng-click="login()">Submit</button>
+				  </div>
+				</form>
+			</div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Submit</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="social_share">
+		<ul class="list-unstyled">
+			<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+		</ul>
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/bootstrap-select.min.js"></script>
+    <script src="js/angular.js"></script>
+        <script src="js/angular-resource.js"></script>
+        <script src="js/angular-cookies.js"/></script>
+  <script src="app/app.js"></script>
+    <script src="app/controllers/RegistrationController.js"></script>
+
+    <script src='app/services/RegistrationService.js'></script>
+	<script>
+	$( document ).ready(function() {
+		$('.selectpicker').selectpicker();
+	});
+	</script>
+  </body>
+</html>

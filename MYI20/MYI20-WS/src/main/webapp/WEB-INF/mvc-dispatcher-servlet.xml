@@ -1,0 +1,101 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+             xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:aop="http://www.springframework.org/schema/aop"
+             xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+       		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd
+       http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-3.1.xsd
+       
+    http://www.springframework.org/schema/aop         
+     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <mvc:annotation-driven />
+
+    <mvc:default-servlet-handler />
+    <mvc:resources mapping="/js/**" location="/js/" />
+
+
+    <http entry-point-ref="authenticationEntryPoint" create-session="stateless">
+
+       <custom-filter position="BASIC_AUTH_FILTER" ref="successLogin" />
+        <!-- <custom-filter ref="securityMetadataSource" after="BASIC_AUTH_FILTER"/> -->
+
+    </http>
+
+   <beans:bean id="multipartResolver"
+                    class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+    <beans:bean id="authenticationEntryPoint"
+                    class="com.intelesant.security.IntelesantAuthenticationEntryPoint">
+        <beans:property name="realmName" value="intelesantRealm" />
+    </beans:bean>
+
+    <context:component-scan base-package="com.*" />
+
+    <beans:bean
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="prefix">
+            <beans:value>/WEB-INF/pages/</beans:value>
+        </beans:property>
+        <beans:property name="suffix">
+            <beans:value>.jsp</beans:value>
+        </beans:property>
+    </beans:bean>
+
+
+    <beans:bean id="userDetailsServiceImpl"
+                    class="com.intelesant.security.UserDetailsServiceImpl" />
+    <beans:bean id="customUserDetails" class="com.intelesant.security.CustomUserDetails" />
+
+    <beans:bean id="daoAuthenticationProvider"
+                    class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+
+        <beans:property name="userDetailsService" ref="userDetailsServiceImpl" />
+        <beans:property name="passwordEncoder">
+            <beans:bean
+                class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+                <beans:constructor-arg value="512" />
+
+            </beans:bean>
+
+        </beans:property>
+        <beans:property name="saltSource">
+            <beans:bean
+                class="org.springframework.security.authentication.dao.ReflectionSaltSource">
+                <beans:property name="userPropertyToUse" value="salt" />
+            </beans:bean>
+        </beans:property>
+
+    </beans:bean>
+
+
+    <beans:bean id="authenticationManager"
+                    class="org.springframework.security.authentication.ProviderManager">
+        <beans:property name="providers">
+            <beans:list>
+                <beans:ref local="daoAuthenticationProvider" />
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+
+    <authentication-manager>
+        <authentication-provider user-service-ref="userDetailsServiceImpl">
+        </authentication-provider>
+    </authentication-manager>
+    <beans:bean id="successLogin"
+                    class="com.intelesant.security.SuccessFullAuthentication">
+        <beans:property name="authenticationManager" ref="authenticationManager" />
+        <beans:property name="authenticationEntryPoint" ref="authenticationEntryPoint" />
+    </beans:bean>
+
+    <beans:import resource="spring-context.xml" />
+</beans:beans>

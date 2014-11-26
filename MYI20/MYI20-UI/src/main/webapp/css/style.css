@@ -1,0 +1,138 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+body { font-family: 'Open Sans', sans-serif; font-size:100%; background:#f6f6f6; font-size:14px;}
+a:focus,a:active,a:hover{border:none; outline:none;}
+.cont{max-width:1240px; margin:0 auto;}
+.cont1{max-width:1366px; margin:0 auto;}
+.clear{clear:both;}
+.mt50{margin-top:50px;}
+/*---------- logo ------------------------*/
+.logo h1{margin-top:10px;color:#fff;}
+.apply_now {padding: 12px;}
+/*---------- top nav --------------------*/
+.menu{position:relative;}
+.top-nav{background:#232B2D;}
+.apply_now a{color:#fff; font-size:24px;}
+/*---------- Main nav --------------------*/
+.main_nav{background:rgba(49,59,61,0.8); position:relative; z-index:555;}
+.main_nav .navbar{background:none; margin-bottom:0; border:none;}
+.main_nav .navbar a{font-size:16px;}
+.main_nav .navbar-default .navbar-nav > li > a{color:#fff;}
+.main_nav .navbar-default .navbar-nav > .open > a,.main_nav .navbar-default .navbar-nav > .open > a:hover,.main_nav .navbar-default .navbar-nav > .open > a:focus{background:rgba(4,4,4,0.6); color:#fff;}
+.main_nav .glyphicon{margin-right:10px; color:#fff;}
+.main_nav .dropdown-menu{background:rgba(4,4,4,0.8); padding:0;}
+.main_nav .dropdown-menu > li > a{color:#fff; font-size:14px; padding:10px 8px;}
+.main_nav .dropdown-menu > li > a:hover,.main_nav .dropdown-menu > li > a:focus{background:rgba(6,6,6,0.8);}
+.main_nav .dropdown-menu .divider{margin:0;}
+/*---------------- slider --------------------*/
+.slider{position:relative; top:-50px;}
+.carousel-control.right,.carousel-control.left{display:none;}
+/*---------------- box colors ------------------*/
+.blue{background:rgba(120,173,201,0.8)}
+.yellow{background:rgba(239,200,73,0.8)}
+.green{background:rgba(120,201,137,0.8)}
+.pink{background:rgba(232,72,74,0.8)}
+.cblue{background:rgba(124,92,49,0.8)}
+.cyellow{background:rgba(73,96,239,0.8)}
+.cgreen{background:rgba(201,120,130,0.8)}
+.cpink{background:rgba(72,232,116,0.8)}
+.courses a:hover .blue{background:rgba(120,173,201,1);}
+.courses a:hover .yellow{background:rgba(239,200,73,1);}
+.courses a:hover .green{background:rgba(120,201,137,1);}
+.courses a:hover .pink{background:rgba(232,72,74,1);}
+.courses a:hover .cblue{background:rgba(124,92,49,1);}
+.courses a:hover .cyellow{background:rgba(73,96,239,1);}
+.courses a:hover .cgreen{background:rgba(201,120,130,1);}
+.courses a:hover .cpink{background:rgba(72,232,116,1);}
+.courses a:hover img,.courses a:hover .fa{transform:rotateY(360deg);-ms-transform:rotateY(360deg);-webkit-transform:rotateY(360deg);-webkit-transition: -webkit-transform .8s ease-in-out;-ms-transition: -ms-transform .8s ease-in-out;transition: transform .8s ease-in-out;  }
+.courses{position:absolute; top:0px; padding:9% 5%; width:100%;}
+.courses .box{ padding:10px;}
+.courses .box h5{color:#fff; font-weight:bold; margin:0px; font-size:18px; min-height:60px; word-wrap:break-word;}
+.courses .box img{margin-bottom:20px;}
+.courses .fa{color:#fff; font-size:80px;margin-bottom:20px;}
+/*-------------- modal -------------------------*/
+.modal-content{background:#444;}
+.modal-content h4{color:#fff;}
+/*------------- form ----------------------*/
+.form-group label,.checkbox{color:#fff; font-size:16px; font-weight:normal; margin-top:5px;}
+.login_btn{width:100%; background:#1FBAD6; padding:10px 0; text-align:center; border:none; color:#fff; font-size:14px;}
+.close,.close.close.close{color:#fff;}
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn){width:100%;}
+/*------------- App guildeline ---------------*/
+.smart_head h3{font-size:48px; color:#FFCC00;}
+.app_guideline{margin-top:50px;}
+.box2{padding:10px 20px;}
+.box2 .btn{margin-top:10px;background:#E8484A; color:#fff; border:none; border-radius:5px;}
+.app_guideline h5{font-size:18px; color:#474747;}
+.app_guideline p{font-size:16px; color:#000;}
+/*-------------- social share ---------------*/
+.social_share ul{background:#444; position:fixed; top:50%; left:0; border-top-right-radius:10px; border-bottom-right-radius:10px;}
+.social_share ul li{padding:10px; border-bottom:1px solid #fff;}
+.social_share ul li:last-child{border-bottom:none;}
+.social_share ul li a .fa{font-size:16px; color:#fff; }
+/*-------------- about page -------------------*/
+.breadcrumb{margin-bottom:0; padding:8px 0px;}
+.sub_head h3{font-size:30px; color:#FFCC00;padding:0;padding-bottom:10px;margin:0; margin-top:15px; border-bottom:1px solid #FFCC00;}
+.breadcrumb li a{font-size:16px; color:#444;}
+/*-------------- admission guidelines --------------*/
+.panel-title{color:#444;font-size: 18px;}
+.panel-default > .panel-heading{background:#fff; }
+/*------------- dashboard -----------------*/
+.sidebar_cont{border-left:1px solid #ccc; min-height:600px;}
+.profile{margin-bottom:30px;}
+.profile_pic{padding:10px 45px;}
+.profile_pic img{border-radius:100%; border:10px solid #FFCC00; width:200px; height:200px;}
+.profile_pic p{padding:10px 0; font-size:24px; margin:0;}
+.progress{border:1px solid #ccc;}
+.progress-bar{background-color: #ffcc00;}
+.side_nav li{font-size:20px; color:#444; padding:0 25px; margin-bottom:20px;}
+.side_nav li a{color:#444;}
+.side_nav li a .fa{padding-right:45px;width:20px;}
+.side_bar_head h2{color:#ffcc00;margin-top:10px;}
+.side_bar_head {border-bottom:1px solid #ccc;}
+.sidebar_cont .form-group label{color:#444;}
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+}
+/*-------------- footer -----------------------*/
+.footer{position:relative;bottom:0;}
+.footer_cont{position:relative; width:100%; bottom:0;background:#232B2D;}
+.footer p{color:#fff; padding:3px 0; margin:0; font-size:14px;}
+.footer_menu li{float:left;  padding:3px 0;}
+.footer_menu li a{color:#fff; font-size:14px; margin:0px 10px;}

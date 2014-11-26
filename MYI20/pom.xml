@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.kishor</groupId>
   <artifactId>MYI20</artifactId>
@@ -7,7 +7,7 @@
   <packaging>pom</packaging>
   <name>MYI20</name>
     <modules>
-        <module>../../myi20/myi20-ui</module>
-        <module>../../myi20/myi20-ws</module>
-    </modules>
+    <module>MYI20-UI</module>
+    <module>MYI20-WS</module>
+  </modules>
 </project>
