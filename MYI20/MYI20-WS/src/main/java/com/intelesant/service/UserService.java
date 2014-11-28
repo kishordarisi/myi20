@@ -16,4 +16,6 @@ public interface UserService {
         public ImageDTO getUserLogo(String imagePath);
         
         ImageDTO updateUser(UserAccountDTO userAccountDTO);
+        
+        public String getFileName(String imgName);
 }

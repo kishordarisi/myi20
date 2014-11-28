@@ -11,6 +11,12 @@ import com.employee.util.FileUploaderUtil;
 import com.intelesant.dto.ImageDTO;
 import com.intelesant.dto.UserAccountDTO;
 import com.intelesant.service.UserService;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.Iterator;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
@@ -18,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -105,5 +112,87 @@ public class EmployeeController {
 
             userService.updateUser(userAccountDTO);
     }
+    
+    @RequestMapping(value = "/download_file", method = RequestMethod.GET)
+    @Transactional
+    public @ResponseBody
+    void downloadDocument(String filePath, HttpServletResponse response)
+            throws IOException {
+
+        String fileName = userService.getFileName(filePath);
+        InputStream fileInputStream = null;
+        PrintWriter printWriter = null;
+        try {
+            LOGGER.info("inside try");
+            File downloadFile = new File(filePath);
+            String filename = downloadFile.getName();
+            LOGGER.info("the file name is " + filename);
+            int fileSize = (int) downloadFile.length();
+            LOGGER.info("the file name is " + fileSize);
+            fileInputStream = new FileInputStream(downloadFile);
+            response.setHeader("Content-Disposition", "attachment;filename="
+                    + "\"" + fileName + "\"");
+            printWriter = response.getWriter();
+            int charcter = -1;
+            // Loop to read and write bytes.
+            while ((charcter = fileInputStream.read()) != -1) {
+                printWriter.print((char) charcter);
+            }
+
+        } catch (FileNotFoundException exception) {
+            LOGGER.error("File not found", exception);
+        } finally {
+            if (fileInputStream != null) {
+                fileInputStream.close();
+            }
+            if (printWriter != null) {
+                printWriter.flush();
+                printWriter.close();
+            }
+        }
+    }
+    
+    
+    /**
+	 * 
+     * @param userName
+	 * @param request
+	 * @param response
+     * @return 
+	 */
+	@RequestMapping(value = "/uploadDocs/{userName}", method = RequestMethod.POST)
+	@ResponseBody
+	public String uploadDocs(@PathVariable("userName") String userName,MultipartHttpServletRequest request,
+			HttpServletResponse response) {
+		String returnValue = null;
+		HttpHeaders headers = request.getRequestHeaders();
+
+		LOGGER.info("Request headers");
+		for (String key : headers.keySet()) {
+			LOGGER.info("Key = " + key + " value = " + headers.values());
+		}
+
+		Iterator<String> itr = request.getFileNames();
+		LOGGER.info("file in file Upload controller: "+itr.toString().length());
+		LOGGER.info("Request File Names: " + request.getFileNames().hasNext());
+                int i=0;
+		if (itr.hasNext()) {
+			String file = itr.next();
+
+			LOGGER.info("File URL is : " + file);
+			MultipartFile mpf = request.getFile(file);
+
+			LOGGER.info("Uploaded file");
+
+			       FileUploaderUtil util = new FileUploaderUtil();
+			if(i==0){
+                            returnValue=util.uploadOrganizationLogo(mpf, propBean);
+                        }else{
+			    returnValue = returnValue+","+util.uploadOrganizationLogo(mpf, propBean);
+                        }
+			
+		}
+		return returnValue;
+	}
     
 }

@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Myi20</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
     <link href="css/bootstrap-select.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
-  <body ng-controller="UserController" ng-init="getUserDetails()">
+  <body ng-controller="UserController">
 	<div class="menu">
 	<div class="top-nav">  
-        <div class="container ">
+        <div class="container">
 			<div class="col-sm-6">
 				<div class="logo">
 					<!-- <img src="img/logo1.png"> --><h1>MYI20.COM</h1>
@@ -66,7 +66,7 @@
 						</form>
                       </ul>
 					  <ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Welcome {{userData.firstName}}</a></li>
+						<li><a href="#">Welcome Xyzs</a></li>
 					  </ul>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container-fluid -->
@@ -93,10 +93,10 @@
 			<div class="side_nav">
 					<ul class="list-unstyled">
 						<li><a href="#"><i class="fa fa-pencil-square-o"></i>My Application</a></li>
-						<li><a href="document.html"><i class="fa fa-file-o"></i>Documents</a></li>
+						<li><a href="#"><i class="fa fa-file-o"></i>Documents</a></li>
 						<li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
 						<li><a href="#"><i class="fa fa-cc-visa"></i>Payment</a></li>
-						<li ng-click="logout()"><a href="#"><i class="fa fa-power-off" ></i>Logout</a></li>
+						<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
 					</ul>
 			</div>
 			
@@ -107,33 +107,40 @@
             <button data-toggle="offcanvas" class="btn btn-primary btn-xs" type="button">Toggle nav</button>
           </p>
 		  <div class="side_bar_head">
-			<h2>Profile</h2>
+			<h2>Apply Now</h2>
 		  </div>
-				<div class="table-responsive">
-					<table class="table table-striped">
-					  <tbody>
-						<tr>
-						  <th>First Name</th>
-						  <td>{{userData.firstName}}</td>
-						</tr>
-						<tr>
-						  <th>Last Name</th>
-						  <td>{{userData.lastName}}</td>
-						</tr>
-						<tr>
-						  <th>Email ID</th>
-						  <td>{{userData.userName}}</td>
-						</tr>
-						<tr>
-						  <th>Profile Pic</th>
-						  <td><img class="img-responsive"src="img/profile.png"></td>
-						</tr>
-					  </tbody>
-					</table>
-					<div class="col-sm-6">
-						<a href="ds-profile-edit.html"><button class="btn btn-warning" type="button">Edit/Update Details</button></a>
-					</div>
-				</div>
+		  <div class="col-sm-8 mt50">
+            <form role="form">
+			  <div class="form-group">
+				<label for="exampleInputFile">SSC Certificate</label>
+				<input type="file" id="exampleInputFile" file-model="ssc">
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputFile">Intermediate Certificate</label>
+				<input type="file" id="exampleInputFile" file-model1="inter">
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputFile">Degree Certificate</label>
+				<input type="file" id="exampleInputFile" file-model2="degree">
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputFile">Course Certificate</label>
+				<input type="file" id="exampleInputFile" file-model3="course1">
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputFile">Course Certificate</label>
+				<input type="file" id="exampleInputFile" file-model4="course2">
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputFile">Passport Size Photo</label>
+				<input type="file" id="exampleInputFile" file-model5="photo">
+			  </div>
+			  <div class="col-sm-6">
+			  <a href="applynow.html"><button type="submit" class="btn btn-warning">Back</button></a>
+                          <button type="submit" class="btn btn-warning pull-right" ng-click="saveDocuments()">Submit</button>
+			  </div>
+			</form>
+		</div>
         </div><!--/.col-xs-12.col-sm-9-->
 
       </div>
