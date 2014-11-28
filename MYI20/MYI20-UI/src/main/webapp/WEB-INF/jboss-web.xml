@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jboss-web>
-  <context-root>/Myi20-UI</context-root>
+  <context-root>/myi20-ui</context-root>
 </jboss-web>
