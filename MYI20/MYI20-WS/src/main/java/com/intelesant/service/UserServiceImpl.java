@@ -113,5 +113,18 @@ public class UserServiceImpl implements UserService {
         ImageDTO imageDTO=userAccount.getPhotoURL()!=null?getUserLogo(userAccount.getPhotoURL()):new ImageDTO();
         return imageDTO;
     }
+    
+    @Override
+    public String getFileName(String imgName) {
+        String fileName = null;
+        if (imgName != null) {
+            int i = imgName.lastIndexOf('/');
+            if (i > 0) {
+                fileName = imgName.substring(i + 1);
+
+            }
+        }
+        return fileName;
+    }
 
 }
