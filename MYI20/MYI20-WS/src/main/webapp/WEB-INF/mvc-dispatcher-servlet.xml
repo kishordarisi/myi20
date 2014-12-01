@@ -35,7 +35,7 @@
                     class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
     <beans:bean id="authenticationEntryPoint"
-                    class="com.intelesant.security.IntelesantAuthenticationEntryPoint">
+                    class="com.employee.security.IntelesantAuthenticationEntryPoint">
         <beans:property name="realmName" value="intelesantRealm" />
     </beans:bean>
 
@@ -64,8 +64,8 @@
 
 
     <beans:bean id="userDetailsServiceImpl"
-                    class="com.intelesant.security.UserDetailsServiceImpl" />
-    <beans:bean id="customUserDetails" class="com.intelesant.security.CustomUserDetails" />
+                    class="com.employee.security.UserDetailsServiceImpl" />
+    <beans:bean id="customUserDetails" class="com.employee.security.CustomUserDetails" />
 
     <beans:bean id="daoAuthenticationProvider"
                     class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
@@ -102,8 +102,7 @@
         <authentication-provider user-service-ref="userDetailsServiceImpl">
         </authentication-provider>
     </authentication-manager>
-    <beans:bean id="successLogin"
-                    class="com.intelesant.security.SuccessFullAuthentication">
+    <beans:bean id="successLogin" class="com.employee.security.SuccessFullAuthentication">
         <beans:property name="authenticationManager" ref="authenticationManager" />
         <beans:property name="authenticationEntryPoint" ref="authenticationEntryPoint" />
     </beans:bean>

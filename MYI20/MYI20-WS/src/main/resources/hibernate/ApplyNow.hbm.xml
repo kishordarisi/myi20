@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.employee.business.ApplyNow" table="ApplyNow">
+    <id column="applyId" length="36" name="id" type="java.lang.String">
+      <generator class="uuid"/>
+    </id>
+    <property name="graduationLevel" type="java.lang.Integer">
+      <column name="graduationLevel"/>
+    </property>
+    <property name="degreeCourse" type="java.lang.Integer">
+      <column name="degreeCourse"/>
+    </property>
+    <property name="countryId" type="java.lang.Integer">
+      <column name="countryId"/>
+    </property>
+    <property name="studyType" type="java.lang.Integer">
+      <column name="studyType"/>
+    </property>
+    <property name="month" type="java.lang.Integer">
+      <column name="month"/>
+    </property>
+    <property name="year" type="java.lang.Integer">
+      <column name="year"/>
+    </property>
+    <property name="prefCountry1" type="java.lang.Integer">
+      <column name="prefCountry1"/>
+    </property>
+    <property name="prefCountry2" type="java.lang.Integer">
+      <column name="prefCountry2"/>
+    </property>
+    <property name="prefCountry3" type="java.lang.Integer">
+      <column name="prefCountry3"/>
+    </property>
+    <property name="prefCountry4" type="java.lang.Integer">
+      <column name="prefCountry4"/>
+    </property>
+    <property name="prefCountry5" type="java.lang.Integer">
+      <column name="prefCountry5"/>
+    </property>
+    <property name="prefCountry6" type="java.lang.Integer">
+      <column name="prefCountry6"/>
+    </property>
+    <property name="ssc" type="java.lang.String">
+      <column length="250" name="ssc"/>
+    </property>
+    <property name="inter" type="java.lang.String">
+      <column length="250" name="inter"/>
+    </property>
+    <property name="degree" type="java.lang.String">
+      <column length="250" name="degree"/>
+    </property>
+    <property name="course1" type="java.lang.String">
+      <column length="250" name="course1"/>
+    </property>
+    <property name="course2" type="java.lang.String">
+      <column length="250" name="course2"/>
+    </property>
+    <property name="photo" type="java.lang.String">
+      <column length="250" name="photo"/>
+    </property>
+  </class>
+</hibernate-mapping>

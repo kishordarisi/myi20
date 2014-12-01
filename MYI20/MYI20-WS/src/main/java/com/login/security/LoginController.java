@@ -6,10 +6,10 @@
 
 package com.login.security;
 
-import com.intelesant.dao.DAO;
-import com.intelesant.dao.UserDAO;
-import com.intelesant.dto.UserAccountDTO;
-import com.intelesant.service.UserService;
+import com.employee.dao.DAO;
+import com.employee.dao.UserDAO;
+import com.employee.dto.UserAccountDTO;
+import com.employee.service.UserService;
 import java.security.Principal;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

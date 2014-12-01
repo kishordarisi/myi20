@@ -10,13 +10,13 @@
     <link href="css/bootstrap-select.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
-  <body ng-controller="UserController">
+  <body ng-controller="UserController" ng-init="getUserDetails()">
 	<div class="menu">
 	<div class="top-nav">  
         <div class="container">
 			<div class="col-sm-6">
 				<div class="logo">
-					<!-- <img src="img/logo1.png"> --><h1>MYI20.COM</h1>
+                                    <!-- <img src="img/logo1.png"> --><h1 ng-click="goToHomePage()">MYI20.COM</h1>
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -81,7 +81,7 @@
         <div role="navigation" id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
 			<div class="profile">
 				<div class="profile_pic text-center">
-					<img src="img/profile.png" class="img-responsive">
+					<img src="img/profile.png" ng-src="{{photoData}}" class="img-responsive">
 					<p>Your Profile</p>
 				</div>
 				<div class="progress">
@@ -94,7 +94,7 @@
 					<ul class="list-unstyled">
 						<li><a href="#"><i class="fa fa-pencil-square-o"></i>My Application</a></li>
 						<li><a href="#"><i class="fa fa-file-o"></i>Documents</a></li>
-						<li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
+						<li><a href="ds-profile.html"><i class="fa fa-user"></i>Profile</a></li>
 						<li><a href="#"><i class="fa fa-cc-visa"></i>Payment</a></li>
 						<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
 					</ul>
@@ -113,31 +113,38 @@
             <form role="form">
 			  <div class="form-group">
 				<label for="exampleInputFile">SSC Certificate</label>
-				<input type="file" id="exampleInputFile" file-model="ssc">
+                                <div ng-show="!appjob.ssc"><input type="file" id="ssc" file-model="ssc"></div>
+                                <div ng-show="appjob.ssc"><a ng-click="downLoad(appjob.ssc)" href="#"><b>Download</b></a></div>
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputFile">Intermediate Certificate</label>
-				<input type="file" id="exampleInputFile" file-model1="inter">
+                                <div ng-show="!appjob.inter"><input type="file" id="inter" file-model1="inter"></div>
+                                <div ng-show="appjob.inter"><a ng-click="downLoad(appjob.inter)" href="#"><b>Download</b></a></div>
+				
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputFile">Degree Certificate</label>
-				<input type="file" id="exampleInputFile" file-model2="degree">
+                                <div ng-show="!appjob.degree"><input type="file" id="degree" file-model2="degree"></div>
+                                <div ng-show="appjob.degree"><a ng-click="downLoad(appjob.degree)" href="#"><b>Download</b></a></div>
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputFile">Course Certificate</label>
-				<input type="file" id="exampleInputFile" file-model3="course1">
+                                <div ng-show="!appjob.course1"><input type="file" id="course1" file-model3="course1"></div>
+                                <div ng-show="appjob.course1"><a ng-click="downLoad(appjob.course1)" href="#"><b>Download</b></a></div>
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputFile">Course Certificate</label>
-				<input type="file" id="exampleInputFile" file-model4="course2">
+                                <div ng-show="!appjob.course2"><input type="file" id="course2" file-model4="course2"></div>
+                                <div ng-show="appjob.course2"><a ng-click="downLoad(appjob.course2)" href="#"><b>Download</b></a></div>
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputFile">Passport Size Photo</label>
-				<input type="file" id="exampleInputFile" file-model5="photo">
+                                <div ng-show="!appjob.photo"><input type="file" id="photo" file-model5="photo"></div>
+                                <div ng-show="appjob.photo"><a ng-click="downLoad(appjob.photo)" href="#"><b>Download</b></a></div>
 			  </div>
 			  <div class="col-sm-6">
-			  <a href="applynow.html"><button type="submit" class="btn btn-warning">Back</button></a>
-                          <button type="submit" class="btn btn-warning pull-right" ng-click="saveDocuments()">Submit</button>
+			  <!--<a href="applynow.html"><button type="submit" class="btn btn-warning">Back</button></a>-->
+                          <!--<button type="submit" class="btn btn-warning pull-right" ng-click="saveDocuments()">Submit</button>-->
 			  </div>
 			</form>
 		</div>

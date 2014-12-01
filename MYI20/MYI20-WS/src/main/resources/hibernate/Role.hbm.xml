@@ -1,26 +1,21 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC
-"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-
-    <class name="com.intelesant.business.Role" table="Roles">
-        <id name="id" type="java.lang.Long" column="roleId" length="10">
-            <generator class="increment"></generator>
-        </id>
-
-        <property name="name" type="java.lang.String" unique="true">
-            <column name="roleName" length="50" />
-        </property>
-        <property name="roleType" column="roleType" not-null="true">
-            <type name="org.hibernate.type.EnumType">
-                <param name="enumClass">com.intelesant.business.RoleType</param>
-            </type>
-        </property>
-         <set name="features"
-             inverse="false" table="Feature_Role">
-            <key column="roleId" />
-            <many-to-many column="featureId" class="com.intelesant.business.Feature" />
-        </set>
-    </class>
+  <class name="com.employee.business.Role" table="Roles">
+    <id column="roleId" length="10" name="id" type="java.lang.Long">
+      <generator class="increment"/>
+    </id>
+    <property name="name" type="java.lang.String" unique="true">
+      <column length="50" name="roleName"/>
+    </property>
+    <property column="roleType" name="roleType" not-null="true">
+      <type name="org.hibernate.type.EnumType">
+        <param name="enumClass">com.employee.business.RoleType</param>
+      </type>
+    </property>
+    <set inverse="false" name="features" table="Feature_Role">
+      <key column="roleId"/>
+      <many-to-many class="com.employee.business.Feature" column="featureId"/>
+    </set>
+  </class>
 </hibernate-mapping>

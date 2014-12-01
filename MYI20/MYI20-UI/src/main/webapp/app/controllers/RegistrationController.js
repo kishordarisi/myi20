@@ -4,16 +4,21 @@ Myi20.controller('RegistrationContoller', function($scope,$location,$window,$coo
   $scope.registerUser1=function (user){
       $scope.regUser=user;
       registerService.registerUser(user).success(function(data) {
-        alert("success...");
+          $('#successRegistration').modal({
+              keyboard: false
+              });
     }).error(function(err){
         alert(err);
     });
       
   };
+  
+  $scope.redirectToHomePage=function (){
+      $window.location="index.html";
+  };
   $scope.login=function (){
       var crypted=$scope.crypt();
       registerService.login(crypted).success(function(data) {
-        alert("success..."+data);
         $cookieStore.put('Myi20.userName',data.userName);
         $cookieStore.put('Myi20.crypt',crypted);
         $window.location="ds-profile.html";

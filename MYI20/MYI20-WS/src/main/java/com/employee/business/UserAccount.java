@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.intelesant.business;
+package com.employee.business;
 
 
 import java.io.Serializable;
@@ -38,6 +38,7 @@ public class UserAccount implements Serializable {
 	private String comments;
 	private String country;
         private String photoURL;
+        private ApplyNow application;
     
     public UserAccount() {
         this.roles = new HashSet<Role>();
@@ -260,6 +261,14 @@ public class UserAccount implements Serializable {
 
     public void setPhotoURL(String photoURL) {
         this.photoURL = photoURL;
+    }
+
+    public ApplyNow getApplication() {
+        return application;
+    }
+
+    public void setApplication(ApplyNow application) {
+        this.application = application;
     }
     
 

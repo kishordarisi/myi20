@@ -16,7 +16,7 @@
         <div class="container ">
 			<div class="col-sm-6">
 				<div class="logo">
-					<!-- <img src="img/logo1.png"> --><h1>MYI20.COM</h1>
+                                    <!-- <img src="img/logo1.png"> --><h1 ng-click="goToHomePage()">MYI20.COM</h1>
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -81,7 +81,7 @@
         <div role="navigation" id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
 			<div class="profile">
 				<div class="profile_pic text-center">
-					<img src="img/profile.png" class="img-responsive">
+					<img ng-src="{{photoData}}" id="userImage" class="img-responsive">
 					<p>Your Profile</p>
 				</div>
 				<div class="progress">
@@ -126,7 +126,7 @@
 						</tr>
 						<tr>
 						  <th>Profile Pic</th>
-						  <td><img class="img-responsive"src="img/profile.png"></td>
+						  <td><img class="img-responsive" ng-src="{{photoData}}"></td>
 						</tr>
 					  </tbody>
 					</table>

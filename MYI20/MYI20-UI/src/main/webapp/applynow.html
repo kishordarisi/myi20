@@ -10,13 +10,13 @@
     <link href="css/bootstrap-select.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
-  <body ng-controller="UserController">
+  <body ng-controller="UserController" ng-init="getUserDetails()">
 	<div class="menu">
 	<div class="top-nav">  
         <div class="container">
 			<div class="col-sm-6">
 				<div class="logo">
-					<!-- <img src="img/logo1.png"> --><h1>MYI20.COM</h1>
+                                    <!-- <img src="img/logo1.png"> --><h1 ng-click="goToHomePage()">MYI20.COM</h1>
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -66,7 +66,7 @@
 						</form>
                       </ul>
 					  <ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Welcome Xyzs</a></li>
+						<li><a href="#">Welcome {{userData.firstName}}</a></li>
 					  </ul>
                     </div><!-- /.navbar-collapse -->
                   </div><!-- /.container-fluid -->
@@ -81,7 +81,7 @@
         <div role="navigation" id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
 			<div class="profile">
 				<div class="profile_pic text-center">
-					<img src="img/profile.png" class="img-responsive">
+					<img src="img/profile.png" ng-src="{{photoData}}" class="img-responsive">
 					<p>Your Profile</p>
 				</div>
 				<div class="progress">
@@ -93,8 +93,8 @@
 			<div class="side_nav">
 					<ul class="list-unstyled">
 						<li><a href="#"><i class="fa fa-pencil-square-o"></i>My Application</a></li>
-						<li><a href="#"><i class="fa fa-file-o"></i>Documents</a></li>
-						<li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
+						<li><a href="document.html"><i class="fa fa-file-o"></i>Documents</a></li>
+						<li><a href="ds-profile.html"><i class="fa fa-user"></i>Profile</a></li>
 						<li><a href="#"><i class="fa fa-cc-visa"></i>Payment</a></li>
 						<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
 					</ul>
@@ -111,49 +111,50 @@
 		  </div>
 		  <div class="col-sm-8 mt50">
             <form role="form">
+                <div ng-show="step==1" ng-init="step=1;">
 			  <div class="form-group">
 				<label for="exampleInputEmail1">Level of Graduation</label>
-				     <select class="selectpicker" ng-model="graduationLevel">
-						<option>Master</option>
-						<option>Under Graduate</option>
+				     <select ng-model="appjob.graduationLevel">
+						<option value="1">Master</option>
+						<option value="2">Under Graduate</option>
 					 </select>
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputEmail1">Chose a Degree</label>
-				<select class="selectpicker" ng-model="degree">
-						<option value="1">Accountancy, Banking & Finance</option>
-						<option value="2">Advertising, Pr & Marketing</option>
-						<option value="3">Agriculture & Forestry</option>
-						<option value="5">Archaeology</option>
-						<option value="6">Architecture</option>
-						<option value="7">Art & Design</option>
-						<option value="56">Biology</option>
-						<option value="57">Bioscience</option>
-						<option value="9">Business & Management Studies</option>
-						<option value="58">Chemistry</option>
-						<option value="10">Communications & Media</option>
-						<option value="11">Computer Science</option>
-						<option value="59">Criminology</option>
-						<option value="12">Culinary Arts</option>
-						<option value="71">Dental</option>
-						<option value="13">Drama, Dance & Performing Arts</option>
-						<option value="14">Economics</option>
-						<option value="15">Education / Teaching</option>
-						<option value="16">Electronics</option>
-						<option value="17">Engineering</option>
-						<option value="18">Engineering: Aeronautical</option>
-						<option value="61">Engineering: Automotive</option>
-						<option value="19">Engineering: Chemical</option>
-						<option value="20">Engineering: Civil</option>
-						<option value="21">Engineering: Electrical</option>
-						<option value="25">Engineering: General</option>
-						<option value="23">Engineering: Manufacturing & Mechanical</option>
-						<option value="26">Engineering: Nuclear</option>
-						<option value="62">Engineering: Petroleum</option>
-						<option value="60">Engineering: Software & Computing</option>
-						<option value="54">English Language</option>
-						<option value="27">English Literature</option>
-						<option value="63">Fashion & Textile Design</option>
+				<select ng-model="appjob.degreeCourse">
+						<option value=1>Accountancy, Banking & Finance</option>
+						<option value=2>Advertising, Pr & Marketing</option>
+						<option value=3>Agriculture & Forestry</option>
+						<option value=5>Archaeology</option>
+						<option value=6>Architecture</option>
+						<option value=7>Art & Design</option>
+						<option value=56>Biology</option>
+						<option value=57>Bioscience</option>
+						<option value=9>Business & Management Studies</option>
+						<option value=58>Chemistry</option>
+						<option value=10>Communications & Media</option>
+						<option value=11>Computer Science</option>
+						<option value=59>Criminology</option>
+						<option value=12>Culinary Arts</option>
+						<option value=71>Dental</option>
+						<option value=13>Drama, Dance & Performing Arts</option>
+						<option value=14>Economics</option>
+						<option value=15>Education / Teaching</option>
+						<option value=16>Electronics</option>
+						<option value=17>Engineering</option>
+						<option value=18>Engineering: Aeronautical</option>
+						<option value=61>Engineering: Automotive</option>
+						<option value=19>Engineering: Chemical</option>
+						<option value=20>Engineering: Civil</option>
+						<option value=21>Engineering: Electrical</option>
+						<option value=25>Engineering: General</option>
+						<option value=23>Engineering: Manufacturing & Mechanical</option>
+						<option value=26>Engineering: Nuclear</option>
+						<option value=62>Engineering: Petroleum</option>
+						<option value=60>Engineering: Software & Computing</option>
+						<option value=54>English Language</option>
+						<option value=27>English Literature</option>
+						<option value=63>Fashion & Textile Design</option>
 						<option value="28">Film / Video / Television</option>
 						<option value="29">Food Science</option>
 						<option value="30">Geography & Geology</option>
@@ -190,12 +191,12 @@
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputEmail1">Choose a Country</label>
-				<select name="search_location" class="selectpicker" ng-model="country"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
+				<select name="search_location"  ng-model="appjob.countryId"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
 					</select>
 			  </div>
 			  <div class="form-group">
 				<label for="exampleInputPassword1">Choose a Study Type</label>
-				<select name="search_mode" class="selectpicker" ng-model="studyType"><option value="1">Full Time Degrees</option><option value="2">Part Time Degrees</option><option value="3">Distance / Online Programs</option><option value="4">English Language Programs</option><option value="5">Study Abroad</option>
+				<select name="search_mode"  ng-model="appjob.studyType"><option value="1">Full Time Degrees</option><option value="2">Part Time Degrees</option><option value="3">Distance / Online Programs</option><option value="4">English Language Programs</option><option value="5">Study Abroad</option>
 					</select>
 			  </div>
 			  <div class="form-group">
@@ -203,11 +204,11 @@
 				<div class="clear"></div>
 				<div class="row">
 				<div class="col-sm-6">
-				<select name="EndMonth" class="selectpicker" ng-model="month">
+				<select name="EndMonth"  ng-model="appjob.month">
 					<option value="0">Month</option><option value="1">Jan </option><option value="2">Feb </option><option value="3">Mar </option><option value="4">Apr </option><option value="5">May </option><option value="6">Jun </option><option value="7">Jul </option><option value="8">Aug </option><option value="9">Sep </option><option value="10">Oct </option><option value="11">Nov </option><option value="12">Dec </option></select>
 				</div>
 				<div class="col-sm-6">
-				<select name="EndYear" class="selectpicker" ng-model="year">
+				<select name="EndYear"  ng-model="appjob.year">
 					<option value="0">Year</option><option value="2023">2023 </option><option value="2022">2022 </option><option value="2021">2021 </option><option value="2020">2020 </option><option value="2019">2019 </option><option value="2018">2018 </option><option value="2017">2017 </option><option value="2016">2016 </option><option value="2015">2015 </option><option value="2014">2014 </option><option value="2013">2013 </option></select>
 				</div>
 				</div>
@@ -217,34 +218,74 @@
 				<label for="exampleInputPassword1">Please state up to 6 countries of interest...</label>
 				<div class="row">
 				<div class="col-sm-4">
-					<select name="search_location" class="selectpicker" ng-model="prefCountry1"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
+					<select name="search_location" ng-model="appjob.prefCountry1"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
 						</select>
 				</div>
 				<div class="col-sm-4">
-					<select name="search_location" class="selectpicker" ng-model="prefCountry2"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
+					<select name="search_location" ng-model="appjob.prefCountry2"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
 						</select>
 				</div>
 				<div class="col-sm-4">
-					<select name="search_location" class="selectpicker" ng-model="prefCountry3"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
+					<select name="search_location" ng-model="appjob.prefCountry3"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
 						</select>
 				</div>
 				</div>
 				<div class="row mt20">
 				<div class="col-sm-4">
-					<select name="search_location" class="selectpicker" ng-model="prefCountry4"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
+					<select name="search_location" ng-model="appjob.prefCountry4"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
 						</select>
 				</div>
 				<div class="col-sm-4">
-					<select name="search_location" class="selectpicker" ng-model="prefCountry5"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
+					<select name="search_location" ng-model="appjob.prefCountry5"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
 						</select>
 				</div>
 				<div class="col-sm-4">
-					<select name="search_location" class="selectpicker" ng-model="prefCountry6"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
+					<select name="search_location"  ng-model="appjob.prefCountry6"><option value="13">Aruba</option><option value="14">Australia</option><option value="15">Austria</option><option value="35">Bulgaria</option><option value="40">Canada</option><option value="60">Czech Republic</option><option value="61">Denmark</option><option value="65">Ecuador</option><option value="66">Egypt</option><option value="70">Estonia</option><option value="76">France</option><option value="83">Germany</option><option value="86">Greece</option><option value="88">Grenada</option><option value="95">Guyana</option><option value="101">Hungary</option><option value="107">Ireland</option><option value="109">Israel</option><option value="110">Italy</option><option value="121">Kyrgyzstan</option><option value="130">Luxembourg</option><option value="135">Malaysia</option><option value="144">Mexico</option><option value="157">Netherlands</option><option value="178">Portugal</option><option value="180">Qatar</option><option value="183">Russia</option><option value="188">Saint Lucia</option><option value="195">Saudi Arabia</option><option value="206">South Africa</option><option value="208">Spain</option><option value="215">Switzerland</option><option value="227">Turkey</option><option value="233">United Arab Emirates</option><option value="234">United Kingdom</option><option value="235">United States</option>
 						</select>
 				</div>
 				</div>
 			  </div>
-                <a href="document.html"><button type="submit" class="btn btn-warning" ng-click="applyNow()">Next</button></a>
+                    <a href="document.html"><button type="submit" class="btn btn-warning" ng-click="step=2;">Next</button></a>
+                </div>
+                
+                
+                <div ng-show="step==2;">
+                          <div class="form-group">
+				<label for="exampleInputFile">SSC Certificate</label>
+                                <div ng-show="!appjob.ssc"><input type="file" id="ssc" file-model="ssc"></div>
+                                <div ng-show="appjob.ssc">Uploaded</div>
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputFile">Intermediate Certificate</label>
+                                <div ng-show="!appjob.inter"><input type="file" id="inter" file-model1="inter"></div>
+                                <div ng-show="appjob.inter">Uploaded</div>
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputFile">Degree Certificate</label>
+                                <div ng-show="!appjob.degree"><input type="file" id="degree" file-model2="degree"></div>
+                                <div ng-show="appjob.degree">Uploaded</div>
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputFile">Course Certificate</label>
+				<div ng-show="!appjob.course1"><input type="file" id="course1" file-model3="course1"></div>
+                                <div ng-show="appjob.course1">Uploaded</div>
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputFile">Course Certificate</label>
+				<div ng-show="!appjob.course2"><input type="file" id="course2" file-model4="course2"></div>
+                                <div ng-show="appjob.course2">Uploaded</div>
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputFile">Passport Size Photo</label>
+                                <div ng-show="!appjob.photo"><input type="file" id="photo" file-model5="photo"></div>
+                                <div ng-show="appjob.photo">Uploaded</div>
+			  </div>
+			  <div class="col-sm-6">
+                              <a href="applynow.html"><button type="submit" class="btn btn-warning" ng-click="step=1;">Back</button></a>
+                              <div ng-show="!appjob.photo && !appjob.course2 && !appjob.course1 && !appjob.degree && !appjob.inter && !appjob.ssc"><button type="submit" class="btn btn-warning pull-right" ng-click="saveDocuments()">Submit</button></div>
+			  </div>
+                </div>
+                
 			</form>
 		</div>
         </div><!--/.col-xs-12.col-sm-9-->

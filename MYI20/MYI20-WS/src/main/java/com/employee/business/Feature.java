@@ -2,7 +2,7 @@
  * To change this template,  choose Tools | Templates
  * and open the template in the editor.
  */
-package com.intelesant.business;
+package com.employee.business;
 
 import java.io.Serializable;
 import java.util.Set;

@@ -38,6 +38,7 @@
 				<value>hibernate/Feature.hbm.xml</value>
                                 <value>hibernate/Role.hbm.xml</value>
                                 <value>hibernate/UserAccount.hbm.xml</value>
+                                <value>hibernate/ApplyNow.hbm.xml</value>
 			</list>
 		</property>
 

@@ -1,33 +1,28 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC
-"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-
-    <class name="com.intelesant.business.Feature" table="Features">
-        <id name="id" type="java.lang.Long" column="featureId" length="10">
-            <generator class="increment"></generator>
-        </id>
-          <property name="featureGroup" type="java.lang.String" unique="true">
-            <column name="featureGroup" length="50" />
-        </property>
-
-        <property name="featureName" type="java.lang.String" unique="true">
-            <column name="featureName" length="50" />
-        </property>
-         <property name="viewTemplate" type="java.lang.String" unique="true">
-            <column name="viewTemplate" length="50" />
-        </property>
-        <property name="showToView" type="java.lang.Boolean" unique="true">
-            <column name="showToView"/>
-        </property>
-        <property name="isMenuFeatures" type="java.lang.Boolean" unique="true">
-            <column name="isMenuFeatures"/>
-        </property>        
-       <set cascade="all" name="roles" table="Feature_Role" lazy="true">
-        <key column="featureId"/>
-        <many-to-many column="roleId" class="com.intelesant.business.Role"/>
-       </set>
-       
-    </class>
+  <class name="com.employee.business.Feature" table="Features">
+    <id column="featureId" length="10" name="id" type="java.lang.Long">
+      <generator class="increment"/>
+    </id>
+    <property name="featureGroup" type="java.lang.String" unique="true">
+      <column length="50" name="featureGroup"/>
+    </property>
+    <property name="featureName" type="java.lang.String" unique="true">
+      <column length="50" name="featureName"/>
+    </property>
+    <property name="viewTemplate" type="java.lang.String" unique="true">
+      <column length="50" name="viewTemplate"/>
+    </property>
+    <property name="showToView" type="java.lang.Boolean" unique="true">
+      <column name="showToView"/>
+    </property>
+    <property name="isMenuFeatures" type="java.lang.Boolean" unique="true">
+      <column name="isMenuFeatures"/>
+    </property>
+    <set cascade="all" lazy="true" name="roles" table="Feature_Role">
+      <key column="featureId"/>
+      <many-to-many class="com.employee.business.Role" column="roleId"/>
+    </set>
+  </class>
 </hibernate-mapping>

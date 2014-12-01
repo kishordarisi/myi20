@@ -1,6 +1,6 @@
-package com.intelesant.dao;
+package com.employee.dao;
 
-import com.intelesant.business.Feature;
+import com.employee.business.Feature;
 import java.io.Serializable;
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.intelesant.business.Role;
-import com.intelesant.business.UserAccount;
+import com.employee.business.Role;
+import com.employee.business.UserAccount;
 
 
 /**

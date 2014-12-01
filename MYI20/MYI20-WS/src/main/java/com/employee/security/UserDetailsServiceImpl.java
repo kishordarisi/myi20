@@ -1,7 +1,7 @@
 /**
  * Created on 08-Aug-2013
  */
-package com.intelesant.security;
+package com.employee.security;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -20,8 +20,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.intelesant.business.Role;
-import com.intelesant.dao.UserDAO;
+import com.employee.business.Role;
+import com.employee.dao.UserDAO;
 
 /**
  * @author rajashekar
@@ -70,7 +70,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             LOGGER.error("while getting user name ", e);
         }
 
-        com.intelesant.business.UserAccount user = userDAO
+        com.employee.business.UserAccount user = userDAO
                 .findByNameILike(username);
         Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         for (Role role : user.getRoles()) {

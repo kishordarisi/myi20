@@ -1,7 +1,8 @@
-package com.intelesant.service;
+package com.employee.service;
 
-import com.intelesant.dto.ImageDTO;
-import com.intelesant.dto.UserAccountDTO;
+import com.employee.dto.ApplyNowDTO;
+import com.employee.dto.ImageDTO;
+import com.employee.dto.UserAccountDTO;
 import java.security.Principal;
 
 
@@ -18,4 +19,6 @@ public interface UserService {
         ImageDTO updateUser(UserAccountDTO userAccountDTO);
         
         public String getFileName(String imgName);
+        
+        public void applyNow(ApplyNowDTO applyNowDTO,String userName);
 }

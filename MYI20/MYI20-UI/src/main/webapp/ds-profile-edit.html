@@ -16,7 +16,7 @@
         <div class="container">
 			<div class="col-sm-6">
 				<div class="logo">
-					<!-- <img src="img/logo1.png"> --><h1>MYI20.COM</h1>
+                                    <!-- <img src="img/logo1.png"> --><h1 ng-click="goToHomePage()">MYI20.COM</h1>
 				</div>
 			</div>
 			<div class="col-sm-6">
@@ -81,9 +81,10 @@
         <div role="navigation" id="sidebar" class="col-xs-6 col-sm-3 sidebar-offcanvas">
 			<div class="profile">
 				<div class="profile_pic text-center">
-					<img src="img/profile.png" class="img-responsive">
+					<img src="img/profile.png" ng-src="{{photoData}}" class="img-responsive">
 					<p>Your Profile</p>
-					<a href="#"><p style="font-size:14px;">Update Profile Pic</p></a>
+                                        
+					<a href="#" id="changePhoto"><p style="font-size:14px;">Update Profile Pic</p></a>
 				</div>
 				<div class="progress">
 				  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
@@ -128,7 +129,12 @@
 				<label for="exampleInputPassword1">Password</label>
 				<input type="password" class="form-control" ng-model="userData.password" id="exampleInputPassword1" placeholder="Password">
 			  </div>
-			  <button type="submit" class="btn btn-warning">Submit</button>
+                          <div class="form-group">
+				<label for="exampleInputPassword1">Change Profile</label>
+                                <input type="file" id="uploadProPic" file-model="imagePath" accept="image/*">
+			  </div>
+                          
+			  <button type="submit" class="btn btn-warning" ng-click="updateProfile()">Submit</button>
 			</form>
 		</div>
         </div><!--/.col-xs-12.col-sm-9-->
@@ -286,6 +292,26 @@
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			<button type="button" class="btn btn-primary">Submit</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+      <div class="modal fade" id="updateSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+			<div class="text-center">
+				<h4>Congratulations</h4>
+			</div>
+		  </div>
+		  <div class="modal-body">
+			<div class="row">
+				You have updated successfully.
+			</div>
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="reloadPage()">Submit</button>
 		  </div>
 		</div>
 	  </div>

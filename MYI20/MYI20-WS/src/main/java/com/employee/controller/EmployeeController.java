@@ -8,9 +8,10 @@ package com.employee.controller;
 
 import com.properties.PropBean;
 import com.employee.util.FileUploaderUtil;
-import com.intelesant.dto.ImageDTO;
-import com.intelesant.dto.UserAccountDTO;
-import com.intelesant.service.UserService;
+import com.employee.dto.ApplyNowDTO;
+import com.employee.dto.ImageDTO;
+import com.employee.dto.UserAccountDTO;
+import com.employee.service.UserService;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -171,7 +172,7 @@ public class EmployeeController {
 		for (String key : headers.keySet()) {
 			LOGGER.info("Key = " + key + " value = " + headers.values());
 		}
-
+                LOGGER.info("files are :::: ......"+request.getFileNames());
 		Iterator<String> itr = request.getFileNames();
 		LOGGER.info("file in file Upload controller: "+itr.toString().length());
 		LOGGER.info("Request File Names: " + request.getFileNames().hasNext());
@@ -190,9 +191,17 @@ public class EmployeeController {
                         }else{
 			    returnValue = returnValue+","+util.uploadOrganizationLogo(mpf, propBean);
                         }
-			
+                        System.out.println("value is ::: "+returnValue);
+			i++;
 		}
 		return returnValue;
 	}
+        
+        @RequestMapping(value = "{userName}/applyNow", method = RequestMethod.POST)
+    @Transactional
+    public @ResponseBody void applyNow(@PathVariable("userName") String userName,@RequestBody ApplyNowDTO applyNowDTO) {
+
+            userService.applyNow(applyNowDTO,userName);
+    }
     
 }

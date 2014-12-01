@@ -1,13 +1,13 @@
-package com.intelesant.dao;
+package com.employee.dao;
 
-import com.intelesant.business.Feature;
-import com.intelesant.business.Role;
+import com.employee.business.Feature;
+import com.employee.business.Role;
 import java.io.Serializable;
 
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 
-import com.intelesant.business.UserAccount;
+import com.employee.business.UserAccount;
 import java.util.List;
 
 /**

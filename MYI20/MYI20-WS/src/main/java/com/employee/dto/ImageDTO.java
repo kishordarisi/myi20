@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.intelesant.dto;
+package com.employee.dto;
 
 import java.io.Serializable;
 

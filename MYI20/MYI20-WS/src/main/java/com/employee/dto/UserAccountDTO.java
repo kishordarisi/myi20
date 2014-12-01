@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.intelesant.dto;
+package com.employee.dto;
 
 import java.io.Serializable;
 
@@ -29,6 +29,7 @@ public class UserAccountDTO implements Serializable{
 	private String comments;
 	private String country;
         private String photoURL;
+        private ApplyNowDTO applyNowDTO;
 
     public Long getId() {
         return id;
@@ -109,7 +110,14 @@ public class UserAccountDTO implements Serializable{
     public void setPhotoURL(String photoURL) {
         this.photoURL = photoURL;
     }
-        
+
+    public ApplyNowDTO getApplyNowDTO() {
+        return applyNowDTO;
+    }
+
+    public void setApplyNowDTO(ApplyNowDTO applyNowDTO) {
+        this.applyNowDTO = applyNowDTO;
+    }
         
     
 }

@@ -1,15 +1,16 @@
-package com.intelesant.service;
+package com.employee.service;
 
-import com.intelesant.dao.DAO;
-import com.intelesant.dto.UserAccountDTO;
+import com.employee.dao.DAO;
+import com.employee.dto.UserAccountDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.intelesant.builder.UserBuilder;
-import com.intelesant.business.UserAccount;
-import com.intelesant.dao.UserDAO;
-import com.intelesant.dto.ImageDTO;
+import com.employee.builder.UserBuilder;
+import com.employee.business.UserAccount;
+import com.employee.dao.UserDAO;
+import com.employee.dto.ApplyNowDTO;
+import com.employee.dto.ImageDTO;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -125,6 +126,15 @@ public class UserServiceImpl implements UserService {
             }
         }
         return fileName;
+    }
+
+    @Override
+    public void applyNow(ApplyNowDTO applyNowDTO,String userName) {
+        UserAccount userAccount=userDAO.findByName(userName);
+        if(userAccount==null){
+           throw new RuntimeException("UserAccount not exist...."+userName);
+        }
+        userAccount.setApplication(userBuilder.createApplyNowEntity(applyNowDTO));
     }
 
 }

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  
-  <class name="com.intelesant.business.UserAccount" table="UserAccount">
+  <class name="com.employee.business.UserAccount" table="UserAccount">
     <id column="accountId" length="36" name="id" type="java.lang.String">
       <generator class="uuid"/>
     </id>
@@ -21,33 +20,31 @@
     <property name="accountNotLocked" type="java.lang.Boolean">
       <column default="true" name="accountNotLocked"/>
     </property>
-    
-    
     <property name="firstName" type="string">
-        <column name="firstName" length="250"  />
+      <column length="250" name="firstName"/>
     </property>
     <property name="lastName" type="string">
-        <column name="lastName" length="250"  />
+      <column length="250" name="lastName"/>
     </property>
     <property name="comments" type="string">
-        <column name="comments" length="250" />
+      <column length="250" name="comments"/>
     </property>
     <property name="country" type="string">
-        <column name="country" length="250"/>
+      <column length="250" name="country"/>
     </property>
     <property name="mobileNumber" type="string">
-        <column name="mobileNumber" length="250"/>
+      <column length="250" name="mobileNumber"/>
     </property>
     <property name="promoCode" type="string">
-        <column name="promoCode" length="250"/>
+      <column length="250" name="promoCode"/>
     </property>
     <property name="photoURL" type="string">
-        <column name="photoURL" length="250"/>
+      <column length="250" name="photoURL"/>
     </property>
-    
     <set fetch="select" lazy="true" name="roles" table="UserAccount_Role">
       <key column="accountId"/>
-      <many-to-many class="com.intelesant.business.Role" column="roleId"/>
+      <many-to-many class="com.employee.business.Role" column="roleId"/>
     </set>
-   </class>
+    <many-to-one cascade="save-update" class="com.employee.business.ApplyNow" column="applicationId" name="application" unique="true"/>
+  </class>
 </hibernate-mapping>
